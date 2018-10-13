@@ -30,11 +30,10 @@ public class fsminterpreter {
     private void getStatesAndInputs() {
         int position = 0;
         try {
-            FileReader fr = new FileReader(FILE_NAME);
-            Scanner column = new Scanner(fr);
-            String currentToken;
+            FileReader fr = new FileReader(INPUT_FILE);
+            Scanner column = new Scanner(System.in);
+            String currentToken = column.next();
             while (column.hasNext()) {
-                currentToken = column.next();
                 if (position == 0) {
                     if (!setOfStates.contains(currentToken)) {
                         setOfStates.add(currentToken);
@@ -45,6 +44,7 @@ public class fsminterpreter {
                     }
                 }
                 position = (position + 1) % 4;
+                currentToken = column.next();
             }
 
         } catch (IOException e) {
