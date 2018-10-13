@@ -22,7 +22,7 @@ public class fsminterpreter {
         FSM.runFSM();
 
 
-        printSetOfStates();
+//        printSetOfStates();
 //        printSetOfInputs();
 
     }
@@ -52,11 +52,12 @@ public class fsminterpreter {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void makeStates() {
         states = new Hashtable[setOfStates.size()][2];
         for (int i = 0; i < setOfStates.size(); i++) {
-            states[i][0] = new Hashtable<>();
-            states[i][1] = new Hashtable<>();
+            states[i][OUTPUT] = new Hashtable<>();
+            states[i][NEXT_STATE] = new Hashtable<>();
         }
     }
 
